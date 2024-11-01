@@ -1,0 +1,66 @@
+### Choose Ubuntu-22.04 OS ###
+
+--> sudo apt-get install -y gnupg curl
+
+--> curl -fsSL https://pgp.mongodb.com/server-7.0.asc | sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg --dearmor
+
+--> echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+
+--> sudo apt-get update
+
+--> sudo apt-get install -y mongodb-org
+
+--> systemctl disable ufw --now
+
+--> systemctl start mongod
+
+--> systemctl daemon-reload
+
+--> sudo systemctl status mongod
+
+### from the options choose vi as your default editor ###
+
+--> update-alternatives --config editor  
+
+### do below modifications in the mongod.conf file
+
+--> vi /etc/mongod.conf  
+
+       #network interfaces
+        net:
+          port: 27017
+          #bindIp: 127.0.0.1
+          bindIp: 0.0.0.0
+
+       security:
+         authorization: enabled
+
+--> systemctl restart mongod
+
+--> mongosh
+
+--> use admin
+
+--> show dbs
+
+
+### Create admin user with full db  access ###
+
+--> db.createUser({     
+      user: "admin",
+      pwd: "password",
+      roles: [
+        { role: "readAnyDatabase", db: "admin" },
+        { role: "readWriteAnyDatabase", db: "admin" },
+        { role: "userAdminAnyDatabase", db: "admin" } ]});
+
+--> show users
+ 
+--> exit
+
+
+### Check whether you can able to connect admin  db  with the user admin  ###
+
+--> mongosh --port 27017 -u admin -p 'password' 'admin'
+
+######### For any futther Refference: https://www.hostinger.in/tutorials/how-to-install-mongodb-on-ubuntu/ ########
