@@ -30,6 +30,10 @@ check & set required variables in .env file to start Mongo-Express service
 
 --> pm2 stop mongo-express ### To stop Mongo-Express service ###
 
+access mongo-express @ http://<public_ip>:8081
+
+--> after logging into mongo-express using credentials in .env file from GUI 
+--> create two db's one with name "user-accounts" & another with "my-db"
+
 
 ###### Mongo-Express Code Refference:  https://github.com/mongo-express/mongo-express.git ######
-

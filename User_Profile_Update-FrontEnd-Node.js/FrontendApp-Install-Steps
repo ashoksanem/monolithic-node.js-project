@@ -1,0 +1,40 @@
+#### Choose Amazon-Linux-3 OS ######
+
+--> curl -fsSL https://rpm.nodesource.com/setup_18.x | sudo bash - 
+                 or 
+    curl -fsSL https://rpm.nodesource.com/setup_20.x | sudo bash -
+
+-->  sudo dnf install  nodejs git -y
+
+--> node -v
+
+--> npm -v
+
+--> git clone https://github.com/ashoksanem/monolithic-node.js-project.git
+
+--> cd  monolithic-node.js-project/User_Profile_Update-FrontEnd-Node.js 
+
+--> npm install 
+
+check & set required variables in .env file 
+check & set mongodb, mongodb_system_ip, db_username & password in server.js file
+check & set fronend-app system public_ip in index.html file
+
+
+--> node server.js  ### start application ###
+
+### Optional Steps to start/stop application in background  ###
+
+--> npm install -g pm2
+
+--> pm2 start server.js  --name frontend-app
+
+--> pm2 list
+
+--> pm2 stop frontend-app  ### To stop frontend-app service ###
+
+access frontend-app @ http://<public_ip>:3000
+
+
+###### FrontEnd-App Code Refference: https://gitlab.com/nanuchi/developing-with-docker  ######
+
