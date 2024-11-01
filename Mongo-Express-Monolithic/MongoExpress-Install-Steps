@@ -12,11 +12,24 @@
 
 --> git clone https://github.com/ashoksanem/monolithic-node.js-project.git
 
---> cd  monolithic-node.js-project/Mongo-Express-Monolithic  
+--> cd  monolithic-node.js-project/Mongo-Express-Monolithic 
 
-check & set required variables in .env file
+--> npm install 
 
---> node app.js
+check & set required variables in .env file to start Mongo-Express service
+
+--> node app.js  ### start application ###
+
+### Optional Steps to start/stop application in background  ###
+
+--> npm install -g pm2
+
+--> pm2 start app.js --name mongo-express
+
+--> pm2 list
+
+--> pm2 stop mongo-express ### To stop Mongo-Express service ###
+
 
 ###### Mongo-Express Code Refference:  https://github.com/mongo-express/mongo-express.git ######
 
