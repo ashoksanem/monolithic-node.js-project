@@ -1,0 +1,22 @@
+#### Choose AmazonLinux-3 OS ######
+
+--> curl -fsSL https://rpm.nodesource.com/setup_18.x | sudo bash - 
+                 or 
+    curl -fsSL https://rpm.nodesource.com/setup_20.x | sudo bash -
+
+-->  sudo dnf install  nodejs git -y
+
+--> node -v
+
+--> npm -v
+
+--> git clone https://github.com/ashoksanem/monolithic-node.js-project.git
+
+--> cd  monolithic-node.js-project/Mongo-Express-Monolithic  
+
+check & set required variables in .env file
+
+--> node app.js
+
+###### Mongo-Express Code Refference:  https://github.com/mongo-express/mongo-express.git ######
+
